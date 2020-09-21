@@ -39,7 +39,7 @@ class ComponentWrapper implements CompositeComponent {
       if (!isUndefined(this.ref)) {
         props.ref = this.ref
       }
-      delete this.ref
+      delete (this as any).ref
     }
     this.props = props
     this.key = props.key || null

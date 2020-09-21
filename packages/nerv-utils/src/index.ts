@@ -34,7 +34,7 @@ const extend = ((): (<S, F>(source: S, from: F) => S | F & S) => {
         return source
       }
       for (const key in from) {
-        if (from.hasOwnProperty(key)) {
+        if ((from as any).hasOwnProperty(key)) {
           (source as any)[key] = from[key]
         }
       }
