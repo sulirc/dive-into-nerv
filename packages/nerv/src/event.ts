@@ -68,10 +68,10 @@ if (isIE9) {
     if (detectCanUseOnInputNode(el)) {
       const index = elements.indexOf(el)
       const element = elements[index] || elements.push(el)
-      if (element.value !== values[index]) {
+      if ((element as any).value !== values[index]) {
         const ev = doc.createEvent('CustomEvent')
         ev.initCustomEvent('input', true, true, undefined)
-        values[index] = element.value
+        values[index] = (element as any).value
         el.dispatchEvent(ev)
       }
     }
