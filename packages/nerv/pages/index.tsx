@@ -6,9 +6,20 @@ interface Props {
   name: string
 }
 
-class HelloMessage extends Component<Props> {
+interface State {
+  msg: string
+}
+
+class HelloMessage extends Component<Props, State> {
+  constructor (...args: any) {
+    super(...args)
+    this.state = {
+      msg: 'Hey'
+    }
+  }
+
   render () {
-    return <div>Hello {this.props.name}</div>
+    return <div>{this.state.msg} {this.props.name}</div>
   }
 }
 
