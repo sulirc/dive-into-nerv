@@ -16,6 +16,10 @@ class HelloMessage extends Component<Props, State> {
     this.state = {
       msg: 'Hey'
     }
+
+    // setTimeout(() => {
+    //   this.forceUpdate();
+    // }, 1000)
   }
 
   render () {
@@ -23,9 +27,13 @@ class HelloMessage extends Component<Props, State> {
   }
 }
 
-const result = render(
-  <HelloMessage name='Nerv' />, document.body
-)
+const vnode = <HelloMessage name='Nerv' />
 
-console.log('HelloMessage', HelloMessage.toString())
-// console.log(result)
+// console.log('<HelloMessage>', HelloMessage.toString())
+console.log('<vnode>', vnode)
+
+const result = render(
+  vnode, document.body, () => {
+    console.log('Finish Rendering')
+  }
+)

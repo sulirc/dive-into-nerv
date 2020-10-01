@@ -20,6 +20,7 @@ export function render (
     options.roots = options.roots.filter((item) => item !== lastVnode)
     dom = patch(lastVnode, vnode, container, {})
   } else {
+    // console.log(':vnode:', vnode)
     dom = mountVNode(vnode, {})
     mountElement(dom, container)
   }

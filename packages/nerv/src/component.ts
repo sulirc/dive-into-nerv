@@ -95,6 +95,7 @@ class Component<P, S> implements ComponentInst<P, S> {
   }
 
   forceUpdate (callback?: Function) {
+    console.log('forcing')
     if (isFunction(callback)) {
       this._pendingCallbacks.push(callback)
     }

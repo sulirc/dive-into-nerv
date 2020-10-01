@@ -58,6 +58,7 @@ function createElement<T> (
   properties?: T & Props | null,
   ..._children: Array<VirtualChildren | null>
 ) {
+  // console.log(':createElement:', type, properties, ..._children)
   let children: any = _children
   if (_children) {
     if (_children.length === 1) {
@@ -80,6 +81,7 @@ function createElement<T> (
       props.children = children || children === 0 ? children : EMPTY_CHILDREN
     }
     props.owner = CurrentOwner.current
+    // console.log('hit', type, props)
     return new FullComponent(type, props)
   }
   return type

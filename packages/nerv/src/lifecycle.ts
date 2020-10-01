@@ -52,6 +52,7 @@ function errorHandler (component: Component<any, any>, error) {
   if (boundary) {
     const { getDerivedStateFromError } = (boundary as any).constructor
     const _disable = boundary._disable
+    // >Note: Component.setState -> enqueueRender
     boundary._disable = false
     if (isFunction(getDerivedStateFromError)) {
       component.setState(getDerivedStateFromError(error))
@@ -97,6 +98,7 @@ export function mountComponent (
   parentComponent
 ) {
   const ref = vnode.ref
+  console.log('mountComponent', vnode)
   if (vnode.type.prototype && vnode.type.prototype.render) {
     const context = getContextByContextType(vnode, parentContext)
     vnode.component = new vnode.type(vnode.props, context)
@@ -167,6 +169,7 @@ export function flushMount () {
   }
   // @TODO: perf
   const queue = readyComponents.slice(0)
+  console.log(':flushMount-queue:', queue)
   readyComponents.length = 0
   queue.forEach((item) => {
     if (isFunction(item)) {
