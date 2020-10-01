@@ -8,7 +8,6 @@
   "description": "A react-like framework based on virtual-dom",
   "scripts": {
     "precommit": "npm run lint && npm run lint-staged",
-    "prepush": "npm run test",
     "postinstall": "lerna bootstrap",
     "clean": "lerna exec -- rimraf dist",
     "lint": "tslint -p tsconfig.json --type-check",
