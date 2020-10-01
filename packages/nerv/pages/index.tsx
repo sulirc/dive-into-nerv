@@ -23,6 +23,9 @@ class HelloMessage extends Component<Props, State> {
   }
 }
 
-render(
+const result = render(
   <HelloMessage name='Nerv' />, document.body
 )
+
+console.log('HelloMessage', HelloMessage.toString())
+// console.log(result)

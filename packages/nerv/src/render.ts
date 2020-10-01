@@ -12,8 +12,9 @@ export function render (
   if (!container) {
     throw new Error(`${container} should be a DOM Element`)
   }
+  // debugger
   const lastVnode = (container as any)._component
-  let dom
+  let dom: any
   options.roots.push(vnode)
   if (lastVnode !== undefined) {
     options.roots = options.roots.filter((item) => item !== lastVnode)
